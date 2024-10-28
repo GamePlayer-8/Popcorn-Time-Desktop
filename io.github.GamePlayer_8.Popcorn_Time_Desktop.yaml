@@ -1,0 +1,43 @@
+app-id: io.github.GamePlayer_8.Popcorn_Time_Desktop
+runtime: org.gnome.Platform
+runtime-version: '47'
+sdk: org.gnome.Sdk
+base: org.electronjs.Electron2.BaseApp
+base-version: '24.08'
+command: popcorntime-wrapper
+separate-locales: false
+finish-args:
+  - --share=ipc
+  - --share=network
+  - --socket=x11
+  - --socket=pulseaudio
+  - --filesystem=home:ro
+  - --talk-name=org.freedesktop.Notifications
+modules:
+- name: popcorntime
+  buildsystem: simple
+  cleanup:
+  - Popcorn-Time-0.5.1-linux64.zip
+  sources:
+  - type: file
+    only-arches:
+    - x86_64
+    url: https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.5.1/Popcorn-Time-0.5.1-linux64.zip
+    sha256: 942b088a8476e761963fffb0370913c393cb49a97f33dc7a9a547f10a39dfe1b
+  - type: file
+    path: io.github.GamePlayer_8.Popcorn_Time_Desktop.metainfo.xml
+  - type: script
+    dest-filename: popcorntime-wrapper
+    commands:
+    - exec /app/popcorntime/Popcorn-Time
+  build-commands:
+  - install -d /app/popcorntime
+  - unzip Popcorn-Time-0.5.1-linux64.zip -d /app/popcorntime
+  - install popcorntime-wrapper /app/bin/
+  - install -d /app/share/icons/hicolor/256x256/apps/
+  - install /app/popcorntime/src/app/images/icon.png /app/share/icons/hicolor/256x256/apps/io.github.GamePlayer_8.Popcorn_Time_Desktop.png
+  - install -d /app/share/applications
+  - touch io.github.GamePlayer_8.Popcorn_Time_Desktop.desktop
+  - install -Dp -m644 io.github.GamePlayer_8.Popcorn_Time_Desktop.metainfo.xml /app/share/metainfo/io.github.GamePlayer_8.Popcorn_Time_Desktop.metainfo.xml
+  - install -m644 io.github.GamePlayer_8.Popcorn_Time_Desktop.desktop /app/share/applications/io.github.GamePlayer_8.Popcorn_Time_Desktop.desktop
+  - desktop-file-edit --set-key=Exec --set-value='popcorntime-wrapper %U' --set-key=Icon --set-value='io.github.GamePlayer_8.Popcorn_Time_Desktop' --set-key=Comment --set-value='Watch Movies and TV Shows instantly' --set-key=Name --set-value='Popcorn-Time' --set-key=StartupNotify --set-value='false' --set-key=Categories --set-value='AudioVideo;Video;Player;' --set-key=Type --set-value='Application' /app/share/applications/io.github.GamePlayer_8.Popcorn_Time_Desktop.desktop

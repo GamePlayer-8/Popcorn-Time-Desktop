@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop">
+  <id>io.github.GamePlayer_8.Popcorn_Time_Desktop</id>
+  <launchable type="desktop-id">io.github.GamePlayer_8.Popcorn_Time_Desktop.desktop</launchable>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-only</project_license>
+  <name>PopcornTime</name>
+  <summary>Watch Movies and TV Shows instantly</summary>
+  <translation type="gettext">PopcornTime</translation>
+  <update_contact>gameplayer2019pl@tutamail.com</update_contact>
+  <developer id="vu.k.chimmie">
+    <name>Chimmie Firefly</name>
+    <contact>gameplayer2019pl@tutamail.com</contact>
+    <url type="homepage">https://chimmie.k.vu/</url>
+  </developer>
+  <description>
+    <p>
+        Popcorn Time is a multi-platform, free software BitTorrent client that includes an integrated media player.
+        The applications provide a free alternative to subscription-based video streaming services such as Netflix.
+        Popcorn Time uses sequential downloading to stream video listed by several torrent websites, and third party trackers can also be added manually.
+    </p>
+  </description>
+  <content_rating type="oars-1.1">
+    <content_attribute id="violence-cartoon">moderate</content_attribute>
+    <content_attribute id="violence-fantasy">moderate</content_attribute>
+    <content_attribute id="violence-realistic">moderate</content_attribute>
+    <content_attribute id="violence-bloodshed">moderate</content_attribute>
+    <content_attribute id="violence-desecration">moderate</content_attribute>
+    <content_attribute id="violence-slavery">moderate</content_attribute>
+    <content_attribute id="violence-worship">moderate</content_attribute>
+    <content_attribute id="drugs-alcohol">moderate</content_attribute>
+    <content_attribute id="drugs-narcotics">moderate</content_attribute>
+    <content_attribute id="drugs-tobacco">moderate</content_attribute>
+    <content_attribute id="sex-nudity">moderate</content_attribute>
+    <content_attribute id="sex-themes">moderate</content_attribute>
+    <content_attribute id="sex-homosexuality">moderate</content_attribute>
+    <content_attribute id="sex-prostitution">moderate</content_attribute>
+    <content_attribute id="sex-adultery">moderate</content_attribute>
+    <content_attribute id="sex-appearance">moderate</content_attribute>
+    <content_attribute id="language-profanity">moderate</content_attribute>
+    <content_attribute id="language-humor">moderate</content_attribute>
+    <content_attribute id="language-discrimination">moderate</content_attribute>
+  </content_rating>
+  <url type="homepage">https://popcorntime.app/</url>
+  <screenshots>
+    <screenshot type="default">
+      <image>https://i.imgur.com/UtKMSso.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://i.imgur.com/7MRrqjV.jpg</image>
+    </screenshot>
+    <screenshot>
+      <image>https://i.imgur.com/1NrtHBj.png</image>
+    </screenshot>
+  </screenshots>
+  <releases>
+    <release date="2024-04-17" version="0.5.1"/>
+    <release date="2022-09-04" version="0.4.9"/>
+    <release date="2020-04-14" version="0.4.4"/>
+    <release date="2018-05-14" version="0.3.10"/>
+  </releases>
+  <categories>
+    <category>Network</category>
+  </categories>
+</component>
