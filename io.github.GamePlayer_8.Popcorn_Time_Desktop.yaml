@@ -17,13 +17,13 @@ modules:
 - name: popcorntime
   buildsystem: simple
   cleanup:
-  - Popcorn-Time-0.5.1-linux64.zip
+  - Popcorn-Time-SOFTVER-linux64.zip
   sources:
   - type: file
     only-arches:
     - x86_64
-    url: https://github.com/popcorn-official/popcorn-desktop/releases/download/v0.5.1/Popcorn-Time-0.5.1-linux64.zip
-    sha256: 942b088a8476e761963fffb0370913c393cb49a97f33dc7a9a547f10a39dfe1b
+    url: https://github.com/popcorn-official/popcorn-desktop/releases/download/vSOFTVER/Popcorn-Time-SOFTVER-linux64.zip
+    sha256: SHA256-PLACEHOLDER
   - type: file
     path: io.github.GamePlayer_8.Popcorn_Time_Desktop.metainfo.xml
   - type: script
@@ -32,7 +32,7 @@ modules:
     - exec /app/popcorntime/Popcorn-Time
   build-commands:
   - install -d /app/popcorntime
-  - unzip Popcorn-Time-0.5.1-linux64.zip -d /app/popcorntime
+  - unzip Popcorn-Time-SOFTVER-linux64.zip -d /app/popcorntime
   - install popcorntime-wrapper /app/bin/
   - install -d /app/share/icons/hicolor/256x256/apps/
   - install /app/popcorntime/src/app/images/icon.png /app/share/icons/hicolor/256x256/apps/io.github.GamePlayer_8.Popcorn_Time_Desktop.png

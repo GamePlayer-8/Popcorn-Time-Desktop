@@ -2,14 +2,21 @@ FROM alpine:3.20 AS flatpak
 
 USER root
 
-RUN mkdir /root/workdir
-WORKDIR /root/workdir
+RUN apk add \
+    --no-cache \
+        flatpak flatpak-builder \
+        appstream-compose \
+        git git-lfs \
+        curl wget sudo \
+        xz bc \
+        flex bash man-db \
+        man-pages file shadow \
+        gawk diffutils findutils
 
-COPY *.xml .
-COPY *.yaml .
-COPY LICENSE.txt .
-COPY *.sh .
+RUN git config \
+    --global \
+    --add protocol.file.allow always
 
-COPY inst/package.sh .
-COPY inst/post.sh .
-CMD ["/bin/sh", "-c", "cd /root/workdir/; sh package.sh; sh post.sh"]
+RUN flatpak remote-add \
+    --if-not-exists \
+        flathub https://flathub.org/repo/flathub.flatpakrepo

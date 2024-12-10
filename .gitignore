@@ -11,3 +11,4 @@ package-lock.json
 var
 ./npx.sh
 ./package.sh
+./checksum.txt
