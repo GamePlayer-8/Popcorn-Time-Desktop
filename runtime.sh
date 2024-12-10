@@ -38,7 +38,7 @@ for X in $(echo "$xml_tags" | tr ' ' '|' | tac); do
     fi
 done
 
-sed "s|<releases>|<releases>\n    $(echo -n $xml_tags)|g" io.github.GamePlayer_8.Popcorn_Time_Desktop.metainfo.xml
+sed "s|<releases>|<releases>\n    $(echo -n $xml_tags)|g" *.metainfo.xml
 
 if grep -q 'version="'"$package_version"'"' *.metainfo.xml; then
     updated_release="$(grep 'version="'"$package_version"'"' *.metainfo.xml | sed -E "s/(<release date=\")[0-9]{4}-[0-9]{2}-[0-9]{2}(\")/\1$current_date\2/")"
@@ -50,15 +50,18 @@ fi
 
 cat *.metainfo.xml
 
+url="$(head -n 1 url.txt | sed -e "s/SOFTVER/${base_version}/g")"
+
 if ! [ -f checksum.txt ]; then
     rm -f .metafile
     curl -L -o .metafile \
-        "https://github.com/popcorn-official/popcorn-desktop/releases/download/v${base_version}/Popcorn-Time-${base_version}-linux64.zip"
+        "$url"
     
     sha256sum .metafile | head -n 1 | cut -f 1 -d ' ' > checksum.txt
     rm -f .metafile
 fi
 
+sed -i "s|SOFTURL|$url|g" *.yaml
 sed -i "s|SHA256-PLACEHOLDER|$(cat checksum.txt | head -n 1)|g" *.yaml
 
 cat *.yaml

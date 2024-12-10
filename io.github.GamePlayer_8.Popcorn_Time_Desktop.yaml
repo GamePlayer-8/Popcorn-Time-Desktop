@@ -22,7 +22,7 @@ modules:
   - type: file
     only-arches:
     - x86_64
-    url: https://github.com/popcorn-official/popcorn-desktop/releases/download/vSOFTVER/Popcorn-Time-SOFTVER-linux64.zip
+    url: SOFTURL
     sha256: SHA256-PLACEHOLDER
   - type: file
     path: io.github.GamePlayer_8.Popcorn_Time_Desktop.metainfo.xml
